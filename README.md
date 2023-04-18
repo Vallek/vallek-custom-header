@@ -12,7 +12,7 @@
 
 ## en readme
 
-This is a fixed header with animation and drop-down menu I use in several projects. 
+This is a fixed header component with animation and drop-down menu I use in several projects. 
 
 It built with vanilla html, css and js so you can put it in any framework/bundler or just use it as it is. 
 
