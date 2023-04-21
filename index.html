@@ -17,14 +17,12 @@
 			--main-color: #fff;
 			--back-color: rgba(41, 65, 153, 1);
 			--black: rgba(11, 19, 42, 1);
-			--header-height: calc(100px + var(--ava-size));
-			--vert-padding: 0;
+			--vert-padding: 3em;
 			--side-padding: 1.7em;
 			--ava-size: 35px;
 			--logo-size: 30px;
 			box-sizing: border-box;
 			position: relative;
-			top: var(--header-height);
 			transform: translateY(-100%);
 			display: flex;
 			justify-content: space-between;
@@ -32,7 +30,6 @@
 			align-self: center; /*In case body is flexbox and you want to remove margin auto*/
 			width: 100%;
 			max-width: 1250px;
-			min-height: var(--header-height);
 			margin: 0 auto;
 			padding: var(--vert-padding) var(--side-padding);
 			background-color: var(--back-color);
@@ -204,12 +201,11 @@
 			position: absolute;
 			left: 0;
 		}
-		
+
 		.header__menu_anim {
 			--vert-padding: 0.6em;
 			--side-padding: 3vw;
 			position: fixed;
-			top: 0;
 			left: 0;
 			transform: translateY(0%);
 			width: 100%;
@@ -300,15 +296,18 @@
 		const menuLink = document.querySelectorAll('.popup-menu__link');
 		const firstLink = document.querySelector('.header__item:first-child');
 		// Get final size after calc
-		const headerHeightStr = getComputedStyle(header).getPropertyValue('min-height');
+		const headerHeightStr = getComputedStyle(header).getPropertyValue('height');
 		const headerHeight = parseInt(headerHeightStr, 10);
+		header.style.top = headerHeightStr;
 		function scrollHeader() {
 			let pageTop = body.getBoundingClientRect().top;
 			if (pageTop < -headerHeight) {
+				header.style.top = '0px';
 				header.classList.add('header__menu_anim');
 				firstLink.classList.remove('visually-hidden');
 			}
 			else {
+				header.style.top = headerHeightStr;
 				header.classList.remove('header__menu_anim');
 				firstLink.classList.add('visually-hidden');
 			}	
