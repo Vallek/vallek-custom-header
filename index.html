@@ -295,7 +295,7 @@
 		const menuButton = document.querySelector('.popup-menu__button');
 		const menuLink = document.querySelectorAll('.popup-menu__link');
 		const firstLink = document.querySelector('.header__item:first-child');
-		// Get final size after calc
+		// Get header height with and without px (used to shift for animation)
 		const headerHeightStr = getComputedStyle(header).getPropertyValue('height');
 		const headerHeight = parseInt(headerHeightStr, 10);
 		header.style.top = headerHeightStr;
