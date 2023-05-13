@@ -297,10 +297,10 @@
 		const menuLink = document.querySelectorAll('.popup-menu__link');
 		const firstLink = document.querySelector('.header__item:first-child');
 		// Get header height with and without px (used to shift for animation)
+		let headerHeightStr = getComputedStyle(header).getPropertyValue('height');
+		let headerHeight = parseInt(headerHeightStr, 10);
+		header.style.top = headerHeightStr;
 		function scrollHeader() {
-			let headerHeightStr = getComputedStyle(header).getPropertyValue('height');
-			let headerHeight = parseInt(headerHeightStr, 10);
-			header.style.top = headerHeightStr;
 			let pageTop = body.getBoundingClientRect().top;
 			if (pageTop < -headerHeight) {
 				header.style.top = '0px';
