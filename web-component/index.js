@@ -9,7 +9,6 @@ function define(html) {
 		
 		constructor() {
 			super();
-			this._value = 0;
 			let shadow = this.attachShadow({mode: 'open'});
 			shadow.innerHTML = html;	
 		}

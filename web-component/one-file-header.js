@@ -1,5 +1,6 @@
 let template = document.createElement("template");
-template.innerHTML = ` <style>
+template.innerHTML = ` 
+<style>
 .header {
 	--accent-color-darker: rgba(247, 158, 14, 1);
 	--main-color: #fff;
@@ -281,15 +282,13 @@ template.innerHTML = ` <style>
 `;
 
 class vallekHeader extends HTMLElement {
-  constructor() {
-    super();
-    this.count = 0;
-    this.attachShadow({ mode: 'open' });
-		
-  }
+	constructor() {
+		super();
+		this.attachShadow({ mode: 'open' });	
+		this.shadowRoot.appendChild(template.content.cloneNode(true));
+	}
 
-  connectedCallback() {
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
+	connectedCallback() {
 		let script = document.createElement('script');
 		script.textContent = ` 
 		customElements.whenDefined('vallek-header').then(() => {
@@ -302,31 +301,28 @@ class vallekHeader extends HTMLElement {
 			const firstLink = header.querySelector('.header__item:first-child');
 			
 			function scrollHeader() {
-				// Get header height with and without px (used to shift for animation)
-				const headerHeightStr = getComputedStyle(header).getPropertyValue('height');
-				const headerHeight = parseInt(headerHeightStr, 10);
-				let pageTop = body.getBoundingClientRect().top;
-				if (pageTop <= -headerHeight) {
-					header.style.top = '0px';
-					header.classList.add('header__menu_anim');
-					firstLink.classList.remove('visually-hidden');
-				}
-				else {
-					header.style.top = headerHeightStr;
-					header.classList.remove('header__menu_anim');
-					firstLink.classList.add('visually-hidden');
-				}
+				// Timeout to wait for right header height value
+				setTimeout(() => {	
+					let headerHeightStr = getComputedStyle(header).height;
+					let headerHeight = parseInt(headerHeightStr, 10);
+					// Get header height with and without px (used to shift for animation)
+					let pageTop = body.getBoundingClientRect().top;
+					if (pageTop <= -headerHeight) {
+						header.style.top = '0px';
+						header.classList.add('header__menu_anim');
+						firstLink.classList.remove('visually-hidden');
+					}
+					else {
+						header.style.top = headerHeightStr;
+						header.classList.remove('header__menu_anim');
+						firstLink.classList.add('visually-hidden');
+					}
+				}, 50);
 			}
+			scrollHeader();
 			window.addEventListener('scroll', scrollHeader);
 			window.addEventListener('resize', scrollHeader);
-			// Timeout to wait for header height to compute
-			setTimeout(() => {	
-				scrollHeader();
-			}, 100);
-		// Timeout after anchor link click to get full header height
-			firstLink.addEventListener('click', () => {
-				setTimeout(scrollHeader, 100);
-			});
+			firstLink.addEventListener('click', scrollHeader);
 		
 			function closeMenu() {
 				menuButton.click();
@@ -346,7 +342,7 @@ class vallekHeader extends HTMLElement {
 		} );
 	 `;
 		this.shadowRoot.appendChild(script);
-  }
+	}
 
 }
 
