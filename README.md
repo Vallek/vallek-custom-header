@@ -11,6 +11,8 @@
 Реализация на нативных веб компонентах в виде custom element. Весь код разделен по отдельным файлам для удобства. 
 
 ### Как пользоваться и как работает веб компонент
+Все файлы веб компонента находятся внутри папки **web-component**.
+
 Файл **index.html** - это страница для примера.
 
 Чтобы использовать шапку на вашей странице вам нужно подключить **index.js** как модуль. Вот так:
@@ -81,6 +83,8 @@ Responsive and accessible fixed header with animation and drop-down menu, which 
 Implementation on native web components as a custom element. All code is divided into separate files for convenience.
 
 ### How it works and how to use
+All web component's files are inside **web-component** folder.
+
 File **index.html** is an example page.
 
 To use the header on your page, you need to connect **index.js** as a module. Like this:
