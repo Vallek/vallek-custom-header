@@ -2,22 +2,26 @@
 
 ## ru readme
 
-Это фиксированная шапка с анимацией и выпадающим меню, которую я использую на своих проектах.
+Фиксированная шапка с анимацией и выпадающим меню, которую я использую на своих проектах.
 
 Реализация на нативных веб компонентах в виде custom element. Весь код разделен по отдельным файлам для удобства. 
 
 ### Как пользоваться и как работает веб компонент
-Файл index.html - это страница для примера.
+Файл **index.html** - это страница для примера.
 
-Чтобы использовать шапку на вашей странице вам нужно подключить index.js как модуль. Вот так:
+Чтобы использовать шапку на вашей странице вам нужно подключить **index.js** как модуль. Вот так:
 ```
 <script type="module" src="index.js"></script>
 ```
-index.js в свою очередь подключает js-код компонента из header.js. А также создает сам custom element с shadow dom разметкой из header.html. Вы можете поменять название 'vallek-header' в последней строчке index.js.
+Не забудьте указать верные относительные пути, если у вас другая структура.
 
-В header.html файле помимо разметки подключаются стили из header.css. Классы именованы по БЭМу. Для чистоты можете вынести внешнюю "геометрию" блока (отступы) в микс типа .page__header.
+**index.js** в свою очередь подключает js-код компонента из **header.js**. А также создает сам custom element с shadow dom разметкой из **header.html**. Вы можете поменять название 'vallek-header' в последней строчке **index.js**.
 
-Осталось просто вставить элемент <vallek-header></vallek-header> на вашу страницу и все!
+Код из **header.j**s выполняется только после того, как кастомный элемент создан с помощью .whenDefined() и .then().
+
+В **header.html** файле помимо разметки подключаются стили из **header.css**. Классы именованы по БЭМу. Для чистоты можете вынести внешнюю "геометрию" блока (отступы) в микс типа .page__header.
+
+Осталось просто вставить элемент `<vallek-header></vallek-header>` на вашу страницу и все!
 
 ### Версия в одном файле
 
@@ -36,19 +40,18 @@ class vallekHeader extends HTMLElement {
 
   connectedCallback() {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
-	let script = document.createElement('script');
-	script.textContent = ` JS without <script> tag `;
-	this.shadowRoot.appendChild(script);
+    let script = document.createElement('script');
+    script.textContent = ` JS without <script> tag `;
+    this.shadowRoot.appendChild(script);
   }
-
 }
 
 customElements.define('vallek-header', vallekHeader);
 ```
-Вы найдете готовый вариант в файле one-file-header.js
+Вы найдете готовый вариант в файле **one-file-header.js**.
 
 ### Ванильная версия
-В корне репозитория версия шапки на чистых html, css, js для демо и если захотите использовать код без компонентов.
+В корне репозитория версия шапки на чистых html, css, js для демо и если захотите использовать код без веб компонентов.
 
 ### Советы
 Не забудьте добавить:
