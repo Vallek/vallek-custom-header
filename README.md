@@ -74,8 +74,6 @@ customElements.define('vallek-header', vallekHeader);
 
 Если что-то не работает, пожалуйста, создайте issue. Вопросы и предложения можно задать в дискуссиях. Спасибо!
 
- vallek-custom-header
-
 ## en readme
 
 Responsive and accessible fixed header with animation and drop-down menu, which I use on my projects.
