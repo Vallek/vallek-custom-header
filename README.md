@@ -34,7 +34,6 @@ template.innerHTML = ` CSS in <style> tag & HTML in <html> tag `;
 class vallekHeader extends HTMLElement {
   constructor() {
     super();
-    this.count = 0;
     this.attachShadow({ mode: 'open' });
   }
 
@@ -60,6 +59,9 @@ customElements.define('vallek-header', vallekHeader);
 
 ### Использованы
 Выпадающее меню сделано по методу из [этой статьи](https://www.pausly.app/blog/accessible-hamburger-buttons-without-javascript).
+
+### Известные проблемы
+В кастомном элементе для функции задана небольшая задержка через setTimeout. Без нее получаемая высота шапки может быть неверной при быстром скролле или первой загрузки/без кэша. В ванильном коде эта проблема отсутствует, а потому нет и таймера.
 
 ### Условия использования
 Пожалуйста используйте с указанием авторства (ссылка на этот репозиторий или мой профиль).
