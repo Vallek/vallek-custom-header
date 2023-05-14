@@ -123,14 +123,14 @@ class vallekHeader extends HTMLElement {
 
 customElements.define('vallek-header', vallekHeader);
 ```
-You will find the one file version in the **one-file-header.js **.
+You will find the one file version in the **one-file-header.js**.
 
 ### Vanilla version
 At the root of the repository is a version of the header in pure html, css, js for demo and if you want to use code without web components.
 
 ### Tips
 Don't forget to add:
-1. scroll-margin-top to headings with anchor links on your page with height same of bigger then fixed header.
+1. scroll-margin-top to headings with anchor links on your page with height same or bigger then fixed header.
 2. Descriptions for alts and aria-label attributes for accessibility.
 
 ### Used
