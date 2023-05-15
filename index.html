@@ -39,12 +39,12 @@
 		.avatar {
 			color: var(--main-color);
 			display: block;
-	border-radius: 50%;
-}	
-
-.avatar:focus {
-	outline: 2px dashed;
-	outline-offset: 2px;
+			border-radius: 50%;
+		}	
+		
+		.avatar:focus {
+			outline: 2px dashed;
+			outline-offset: 2px;
 		}	
 		
 		.avatar__image {
@@ -79,7 +79,7 @@
 			text-transform: uppercase;
 			text-decoration: none;
 		}
-
+		
 		.header__link:focus {
 			outline: 2px dashed;
 			outline-offset: 2px;
@@ -100,11 +100,11 @@
 			color: var(--main-color);
 		}
 		
-.header__social-link:focus {
-	outline: 2px dashed;
-	outline-offset: 2px;
-}
-
+		.header__social-link:focus {
+			outline: 2px dashed;
+			outline-offset: 2px;
+		}
+		
 		.header__social-logo {
 			display: block;
 			width: var(--logo-size);
@@ -213,7 +213,7 @@
 			position: absolute;
 			left: 0;
 		}
-
+		
 		.header__menu_anim {
 			--vert-padding: 0.6em;
 			--side-padding: 3vw;
@@ -233,7 +233,7 @@
 	<!-- Don't forget to fill out alts and aria-label's -->
 	<header class="header">
 		<a class="avatar" href="" aria-label="" title="">
-		<img class="avatar__image" src="https://placehold.co/120x120/f79e0e/FFFFFF/png" alt="" width="40" height="40">
+			<img class="avatar__image" src="https://placehold.co/120x120/f79e0e/FFFFFF/png" alt="" width="40" height="40">
 		</a>
 		<nav class="header__nav">
 			<ul class="header__menu">
@@ -294,10 +294,10 @@
 		</div>
 		<section class="header__social-links">
 			<a class="header__social-link" href="" title="" aria-label="">
-			<img class="header__social-logo" width="25" height="25" src="https://placehold.co/100x100/4fb773/FFFFFF.svg" alt="">
+				<img class="header__social-logo" width="25" height="25" src="https://placehold.co/100x100/4fb773/FFFFFF.svg" alt="">
 			</a>
 			<a class="header__social-link" href="" title="" aria-label="">
-			<img class="header__social-logo" width="25" height="25" src="https://placehold.co/100x100/4a99df/FFFFFF.svg" alt="">
+				<img class="header__social-logo" width="25" height="25" src="https://placehold.co/100x100/4a99df/FFFFFF.svg" alt="">
 			</a>
 		</section>
 	</header>
@@ -334,12 +334,12 @@
 		// Accessibility
 		const menuState = document.querySelector('#menustate');
 		document.querySelector('.popup-menu__open').addEventListener('click', (e) => {
-		e.preventDefault();
-		menuState.checked = true;
+			e.preventDefault();
+			menuState.checked = true;
 		});
 		document.querySelector('.popup-menu__close').addEventListener('click', (e) => {
-		e.preventDefault();
-		menuState.checked = false;
+			e.preventDefault();
+			menuState.checked = false;
 		});
 	</script>
 </body>
