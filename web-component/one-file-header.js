@@ -211,7 +211,7 @@ template.innerHTML = `
 <!-- Don't forget to fill out alts and aria-label's -->
 <header class="header">
 <a class="avatar" href="" aria-label="" title="">
-	<img class="avatar__image" src="https://placehold.co/120x120.png" alt="" width="40" height="40">
+		<img class="avatar__image" src="https://placehold.co/120x120/f79e0e/FFFFFF/png" alt="" width="40" height="40">
 </a>
 <nav class="header__nav">
 	<ul class="header__menu">
@@ -272,10 +272,10 @@ template.innerHTML = `
 </div>
 <section class="header__social-links">
 	<a class="header__social-link" href="" title="" aria-label="">
-		<img class="header__social-logo" width="25" height="25" src="https://placehold.co/100x100.svg" alt="">
+			<img class="header__social-logo" width="25" height="25" src="https://placehold.co/100x100/4fb773/FFFFFF.svg" alt="">
 	</a>
 	<a class="header__social-link" href="" title="" aria-label="">
-		<img class="header__social-logo" width="25" height="25" src="https://placehold.co/100x100.svg" alt="">
+			<img class="header__social-logo" width="25" height="25" src="https://placehold.co/100x100/4a99df/FFFFFF.svg" alt="">
 	</a>
 </section>
 </header>
