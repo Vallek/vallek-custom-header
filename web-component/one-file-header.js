@@ -28,6 +28,12 @@ template.innerHTML = `
 .avatar {
 	color: var(--main-color);
 	display: block;
+	border-radius: 50%;
+}	
+
+.avatar:focus {
+	outline: 2px dashed;
+	outline-offset: 2px;
 }	
 
 .avatar__image {
@@ -81,6 +87,11 @@ template.innerHTML = `
 
 .header__social-link {
 	color: var(--main-color);
+}
+
+.header__social-link:focus {
+	outline: 2px dashed;
+	outline-offset: 2px;
 }
 
 .header__social-logo {
