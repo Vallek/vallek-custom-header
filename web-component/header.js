@@ -3,7 +3,6 @@ customElements.whenDefined('vallek-header').then(() => {
 	const vallekHeader = document.querySelector('vallek-header');
 	const vallekHeaderDOM = vallekHeader.shadowRoot;
 	const header = vallekHeaderDOM.querySelector('header');
-	const headerMenuWrapper = header.querySelector('.popup-menu__list');
 	const menuButton = header.querySelector('.popup-menu__button');
 	const menuLink = header.querySelectorAll('.popup-menu__link');
 	const firstLink = header.querySelector('.header__item:first-child');
