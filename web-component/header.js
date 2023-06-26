@@ -6,6 +6,7 @@ customElements.whenDefined('vallek-header').then(() => {
 	const menuButton = header.querySelector('.popup-menu__button');
 	const menuLink = header.querySelectorAll('.popup-menu__link');
 	const firstLink = header.querySelector('.header__item:first-child');
+	const links = header.querySelectorAll('.popup-menu__link');
 	
 	function scrollHeader() {
 		// Timeout to wait for right header height value
@@ -29,7 +30,10 @@ customElements.whenDefined('vallek-header').then(() => {
 	scrollHeader();
 	window.addEventListener('scroll', scrollHeader);
 	window.addEventListener('resize', scrollHeader);
-	firstLink.addEventListener('click', scrollHeader);
+	links.forEach((el) => {
+		el.addEventListener('click', scrollHeader);
+		console.log('top');
+	});
 	
 	function closeMenu() {
 		menuButton.click();
