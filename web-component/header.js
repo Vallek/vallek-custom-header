@@ -3,6 +3,7 @@ customElements.whenDefined('vallek-header').then(() => {
 	const vallekHeader = document.querySelector('vallek-header');
 	const vallekHeaderDOM = vallekHeader.shadowRoot;
 	const header = vallekHeaderDOM.querySelector('header');
+	const headerMenuWrapper = header.querySelector('.popup-menu__list');
 	const menuButton = header.querySelector('.popup-menu__button');
 	const menuLink = header.querySelectorAll('.popup-menu__link');
 	const firstLink = header.querySelector('.header__item:first-child');
@@ -36,6 +37,16 @@ customElements.whenDefined('vallek-header').then(() => {
 	}
 	menuLink.forEach((el) => {el.addEventListener('click', closeMenu);});
 	
+	// Close when click outside
+	let input = header.querySelector('.popup-menu__input');
+	document.addEventListener('click', (el) => {
+		let target = el.target;
+		// Can't access shadow dom so just check if outside custom element
+		if (target != vallekHeader) {
+			input.checked = false;
+		}
+	});
+
 	// Accessibility
 	const menuState = document.querySelector('#menustate');
 	header.querySelector('.popup-menu__open').addEventListener('click', (e) => {
