@@ -32,7 +32,6 @@ customElements.whenDefined('vallek-header').then(() => {
 	window.addEventListener('resize', scrollHeader);
 	links.forEach((el) => {
 		el.addEventListener('click', scrollHeader);
-		console.log('top');
 	});
 	
 	function closeMenu() {
