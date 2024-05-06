@@ -1,12 +1,13 @@
 let template = document.createElement("template");
-template.innerHTML = ` 
+const html = String.raw;
+template.innerHTML = html` 
 <style>
 .header {
 	--accent-color-darker: rgba(247, 158, 14, 1);
 	--main-color: #fff;
 	--back-color: rgba(41, 65, 153, 1);
 	--black: rgba(11, 19, 42, 1);
-	--vert-padding: 3em;
+	--vert-padding: 2em;
 	--side-padding: 1.7em;
 	--ava-size: 35px;
 	--logo-size: 30px;
@@ -310,6 +311,7 @@ class vallekHeader extends HTMLElement {
 			const menuButton = header.querySelector('.popup-menu__button');
 			const menuLink = header.querySelectorAll('.popup-menu__link');
 			const firstLink = header.querySelector('.header__item:first-child');
+			const links = header.querySelectorAll('.popup-menu__link');
 			
 			function scrollHeader() {
 				// Timeout to wait for right header height value
@@ -334,11 +336,24 @@ class vallekHeader extends HTMLElement {
 			window.addEventListener('scroll', scrollHeader);
 			window.addEventListener('resize', scrollHeader);
 			firstLink.addEventListener('click', scrollHeader);
-		
+			links.forEach((el) => {
+				el.addEventListener('click', scrollHeader);
+			});
+
 			function closeMenu() {
 				menuButton.click();
 			}
 			menuLink.forEach((el) => {el.addEventListener('click', closeMenu);});
+			
+			// Close when click outside
+			let input = header.querySelector('.popup-menu__input');
+			document.addEventListener('click', (el) => {
+				let target = el.target;
+				// Can't access shadow dom so just check if outside custom element
+				if (target != vallekHeader) {
+					input.checked = false;
+				}
+			});
 		
 			// Accessibility
 			const menuState = document.querySelector('#menustate');
