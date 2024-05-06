@@ -30,6 +30,7 @@ customElements.whenDefined('vallek-header').then(() => {
 	scrollHeader();
 	window.addEventListener('scroll', scrollHeader);
 	window.addEventListener('resize', scrollHeader);
+	firstLink.addEventListener('click', scrollHeader);
 	links.forEach((el) => {
 		el.addEventListener('click', scrollHeader);
 	});
