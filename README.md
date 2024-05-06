@@ -5,12 +5,17 @@
 2. [en readme](#en-readme)
 
 ## ru readme
-
 Адаптивная и доступная фиксированная шапка с анимацией и выпадающим меню, которую я использую на своих проектах.
 
-Реализация на нативных веб компонентах в виде custom element. Весь код разделен по отдельным файлам для удобства. 
+Реализация на нативных веб компонентах в виде custom element. Представлены версии:
+1. Отдельными файлами
+2. В одном файле
 
 ### Как пользоваться и как работает веб компонент
+#### Отдельные файлы
+
+**ВНИМАНИЕ**: версия с отдельными файлами работает только, если файлы компонента лежат в той же папке, где и html страница.
+
 Все файлы веб компонента находятся внутри папки **web-component**.
 
 Файл **index.html** - это страница для примера.
@@ -19,7 +24,6 @@
 ```
 <script type="module" src="index.js"></script>
 ```
-Не забудьте указать верные относительные пути, если у вас другая структура.
 
 **index.js** в свою очередь подключает js-код компонента из **header.js**. А также создает сам custom element с shadow dom разметкой из **header.html**. Вы можете поменять название 'vallek-header' в последней строчке **index.js**.
 
@@ -29,7 +33,7 @@
 
 Осталось просто вставить элемент `<vallek-header></vallek-header>` на вашу страницу и все!
 
-### Версия в одном файле
+#### Версия в одном файле
 
 Если хотите можно сделать в один файл по [шаблону](https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component/) + JS компонента в script теге. 
 
@@ -55,9 +59,6 @@ customElements.define('vallek-header', vallekHeader);
 ```
 Вы найдете готовый вариант в файле **one-file-header.js**.
 
-### Ванильная версия
-В корне репозитория версия шапки на чистых html, css, js для демо и если захотите использовать код без веб компонентов.
-
 ### Советы
 Не забудьте добавить:
 1. scroll-margin-top для заголовков c якорными ссылками на вашем сайте такой же или больше высоты, как фикс. шапка.
@@ -67,7 +68,7 @@ customElements.define('vallek-header', vallekHeader);
 Выпадающее меню сделано по методу из [этой статьи](https://www.pausly.app/blog/accessible-hamburger-buttons-without-javascript).
 
 ### Известные проблемы
-В кастомном элементе для функции задана небольшая задержка (50ms) через setTimeout. Без нее получаемая высота шапки может быть неверной при быстром скролле или первой загрузке/без кэша. При более низких значениях проблема оставалась (пробовал 15ms). В ванильном коде эта проблема отсутствует, а потому нет и таймера.
+В кастомном элементе для функции задана небольшая задержка (50ms) через setTimeout. Без нее получаемая высота шапки может быть неверной при быстром скролле или первой загрузке/без кэша. При более низких значениях проблема оставалась (пробовал 15ms).
 
 ### Условия использования
 Пожалуйста используйте с указанием авторства (ссылка на этот репозиторий или мой профиль).
@@ -78,9 +79,18 @@ customElements.define('vallek-header', vallekHeader);
 
 Responsive and accessible fixed header with animation and drop-down menu, which I use on my projects.
 
-Implementation on native web components as a custom element. All code is divided into separate files for convenience.
+Реализация на нативных веб компонентах в виде custom element. Представлены версии:
+
+
+Implementation on native web components as a custom element. You'll find two versions here:
+1. Separate files
+2. One file
 
 ### How it works and how to use
+#### Separate files
+
+**ATTENTION**: separate files version only works when component files are in  the same folder as html page.
+
 All web component's files are inside **web-component** folder.
 
 File **index.html** is an example page.
@@ -99,7 +109,7 @@ Inside **header.html** styles from **header.css** are also connected via `<link>
 
 All that remains is just to insert the element `<vallek-header></vallek-header>` to your page and that's it!
 
-### One file version
+#### One file version
 
 If you want, you can use one file version according to [template] (https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component /) + JS of the component in the script tag.
 
@@ -124,9 +134,6 @@ class vallekHeader extends HTMLElement {
 customElements.define('vallek-header', vallekHeader);
 ```
 You will find the one file version in the **one-file-header.js**.
-
-### Vanilla version
-At the root of the repository is a version of the header in pure html, css, js for demo and if you want to use code without web components.
 
 ### Tips
 Don't forget to add:
