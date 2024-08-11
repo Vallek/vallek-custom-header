@@ -302,7 +302,8 @@ class vallekHeader extends HTMLElement {
 
 	connectedCallback() {
 		let script = document.createElement('script');
-		script.textContent = ` 
+		const js = String.raw;
+		script.textContent = js` 
 		customElements.whenDefined('vallek-header').then(() => {
 			const body = document.querySelector('body');
 			const vallekHeader = document.querySelector('vallek-header');
