@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2024 Vallek
+Copyright (c) 2024 Vallek, https://vallek.github.io/
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
