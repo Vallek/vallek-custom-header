@@ -149,4 +149,6 @@ In the custom element, a small delay (50ms) is set for the function via setTimeo
 ### Terms of Use
 Please use with attribution (link to this repository or my profile).
 
+[Support me of boosty](https://boosty.to/vallek) if you like this project)
+
 If something doesn't work, please create an issue. Questions and suggestions can be asked in discussions. Thanks!
